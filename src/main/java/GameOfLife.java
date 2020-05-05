@@ -1,4 +1,11 @@
 public class GameOfLife {
+    private cellState state;
+
+    public void cell(cellState state){
+
+        this.state = state;
+    }
+
     public static void main(String[] args)
     {
         int M = 10, N = 10;
@@ -82,18 +89,12 @@ public class GameOfLife {
             System.out.println();
         }
     }
-    private CellState state;
 
-    public void Cell(CellState state){
-
-        this.state = state;
+    public cellState GetState(int i) {
+        return i > 1  && i < 4 ? cellState.ALIVE : cellState.DEAD;
     }
 
-    public CellState GetNextState(int i) {
-        return i > 1  && i < 4 ? CellState.ALIVE : CellState.DEAD;
-    }
-
-    public enum CellState {
+    public enum cellState {
         ALIVE, DEAD
     }
 }
