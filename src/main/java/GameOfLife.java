@@ -1,11 +1,6 @@
 public class GameOfLife {
+
     private cellState state;
-
-    public void cell(cellState state){
-
-        this.state = state;
-    }
-
     public static void main(String[] args)
     {
         int M = 10, N = 10;
@@ -90,8 +85,21 @@ public class GameOfLife {
         }
     }
 
-    public cellState GetState(int i) {
-        return i > 1  && i < 4 ? cellState.ALIVE : cellState.DEAD;
+    public void setState(cellState state) {
+        this.state = state;
+    }
+
+    public cellState getState(int i) {
+
+        if (i>1 && i<4){
+            state = cellState.ALIVE;
+        }
+        else{
+            state = cellState.DEAD;
+        }
+
+        setState(state);
+        return state;
     }
 
     public enum cellState {
